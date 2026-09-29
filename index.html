@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#f3f5f2">
+	<title>Energy &amp; Electricity | Data Explorer</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+	<script src="load-data.js" defer></script>
+	<script src="charts/scatter.js" defer></script>
+	<script src="charts/donut.js" defer></script>
+	<script src="charts/bar.js" defer></script>
+	<script src="charts/line.js" defer></script>
+</head>
+<body>
+	<main class="dashboard">
+		<header class="page-header">
+			<div class="intro">
+				<p class="eyebrow"><span class="eyebrow-dot"></span> ENERGY DATA / AUSTRALIA</p>
+				<h1>Power in perspective<span>.</span></h1>
+				<p class="subtitle">A look at how television efficiency and Australian electricity prices have changed across technologies, brands, regions, and time.</p>
+			</div>
+			<div class="load-status" id="load-status" role="status" aria-live="polite">
+				<span class="status-dot" aria-hidden="true"></span>
+				<span class="status-text">Loading datasets</span>
+			</div>
+		</header>
+
+		<section class="chart-grid" aria-label="Energy and electricity charts">
+			<article class="chart-panel" aria-labelledby="scatter-title">
+				<div class="panel-heading">
+					<div><p class="chart-index">01 <span>TELEVISION EFFICIENCY</span></p><h2 id="scatter-title">Stars &amp; consumption</h2></div>
+					<span class="chart-kind">SCATTER</span>
+				</div>
+				<p class="panel-note">Energy consumption against star rating; hover over a point to see its brand.</p>
+				<div class="chart-canvas" id="scatter-chart"></div>
+			</article>
+
+			<article class="chart-panel" aria-labelledby="donut-title">
+				<div class="panel-heading">
+					<div><p class="chart-index">02 <span>ALL SCREEN SIZES</span></p><h2 id="donut-title">Efficiency by technology</h2></div>
+					<span class="chart-kind">DONUT</span>
+				</div>
+				<p class="panel-note">Mean labelled energy consumption for each screen technology.</p>
+				<div class="chart-canvas" id="donut-chart"></div>
+				<div class="chart-legend donut-legend" id="donut-legend" aria-label="Screen technology legend"></div>
+			</article>
+
+			<article class="chart-panel" aria-labelledby="bar-title">
+				<div class="panel-heading">
+					<div><p class="chart-index">03 <span>55-INCH TELEVISIONS</span></p><h2 id="bar-title">Consumption by technology</h2></div>
+					<span class="chart-kind">BAR</span>
+				</div>
+				<p class="panel-note">Mean labelled annual energy consumption, in kWh/year.</p>
+				<div class="chart-canvas" id="bar-chart"></div>
+			</article>
+
+			<article class="chart-panel line-panel" aria-labelledby="line-title">
+				<div class="panel-heading">
+					<div><p class="chart-index">04 <span>AUSTRALIAN REGIONS</span></p><h2 id="line-title">Wholesale spot prices</h2></div>
+					<span class="chart-kind">1998–2024</span>
+				</div>
+				<p class="panel-note">Annual average electricity prices, in dollars per megawatt hour.</p>
+				<div class="chart-canvas" id="line-chart"></div>
+				<div class="chart-legend region-legend" id="line-legend" aria-label="Region legend"></div>
+			</article>
+		</section>
+
+		<footer class="page-footer"><span>4 DATASETS</span><span class="footer-rule"></span><span>27 YEARS OF SPOT PRICES</span><span class="footer-spacer"></span><span>DATA EXPLORATION</span></footer>
+	</main>
+</body>
+</html>

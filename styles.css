@@ -1,0 +1,78 @@
+:root {
+	color-scheme: light;
+	--paper: #f2f4ef;
+	--surface: #fbfcf9;
+	--ink: #203731;
+	--muted: #77847e;
+	--line: #dce3db;
+	--green: #39745c;
+	--green-light: #b9d9c7;
+	--orange: #d8754d;
+	--yellow: #e2b752;
+	--blue: #5e8ca5;
+	--teal: #65a59a;
+	--rose: #bc7880;
+	--mono: "DM Mono", monospace;
+	--sans: "Manrope", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+	margin: 0;
+	min-width: 320px;
+	background-color: var(--paper);
+	background-image: linear-gradient(90deg, transparent 49.95%, rgb(57 116 92 / 3%) 50%, transparent 50.05%), radial-gradient(#d7dfd6 0.65px, transparent 0.65px);
+	background-size: 100% 100%, 18px 18px;
+	color: var(--ink);
+	font-family: var(--sans);
+	-webkit-font-smoothing: antialiased;
+}
+
+.dashboard { width: min(1320px, calc(100% - 72px)); margin: 0 auto; padding: 54px 0 25px; }
+.page-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; margin-bottom: 32px; }
+.eyebrow, .chart-index, .chart-kind, .page-footer { font-family: var(--mono); }
+.eyebrow { display: flex; align-items: center; gap: 9px; margin: 0 0 15px; color: var(--green); font-size: 10px; }
+.eyebrow-dot, .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); }
+h1 { margin: 0; font-size: 42px; font-weight: 700; line-height: 1.15; }
+h1 span { color: var(--orange); }
+.subtitle { max-width: 660px; margin: 11px 0 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.load-status { display: inline-flex; align-items: center; gap: 9px; flex: 0 0 auto; margin-bottom: 3px; padding: 9px 12px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); font-family: var(--mono); font-size: 10px; }
+.status-dot { background: var(--yellow); }
+.load-status.is-loaded .status-dot { background: var(--green); }
+.load-status.is-error .status-dot { background: var(--orange); }
+.chart-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+.chart-panel { min-width: 0; padding: 20px 21px 17px; border: 1px solid var(--line); background: var(--surface); box-shadow: 0 4px 14px rgb(32 55 49 / 3%); }
+.panel-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.chart-index { display: flex; align-items: center; gap: 9px; margin: 0 0 6px; color: var(--orange); font-size: 9px; }
+.chart-index span { color: var(--muted); font-size: 8px; }
+h2 { margin: 0; font-size: 16px; font-weight: 700; }
+.chart-kind { flex: 0 0 auto; padding-top: 1px; color: #91a098; font-size: 9px; }
+.panel-note { margin: 8px 0 0; color: var(--muted); font-size: 10px; line-height: 1.55; }
+.chart-canvas { width: 100%; min-height: 0; margin-top: 11px; }
+.chart-canvas svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart-canvas .grid line { stroke: #e7ece6; stroke-dasharray: 2 4; }
+.chart-canvas .grid path { display: none; }
+.chart-canvas .axis path, .chart-canvas .axis line { stroke: #cdd7ce; }
+.chart-canvas .axis text { fill: #718078; font-family: var(--mono); font-size: 10px; }
+.axis-label { fill: #68766f; font-family: var(--mono); font-size: 10px; }
+.chart-legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 18px; padding: 2px 8px 4px; color: #596b62; font-size: 9px; }
+.legend-item { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.legend-swatch { display: inline-block; width: 8px; height: 8px; flex: 0 0 auto; border-radius: 50%; }
+.donut-legend { padding-top: 0; }
+.line-panel .chart-canvas { margin-top: 5px; }
+.region-legend { gap: 7px 14px; }
+.region-legend .legend-swatch { width: 14px; height: 3px; border-radius: 0; }
+.page-footer { display: flex; align-items: center; gap: 11px; margin-top: 19px; color: #87938c; font-size: 9px; }
+.footer-rule { width: 24px; height: 1px; background: var(--orange); }
+.footer-spacer { flex: 1; }
+
+@media (max-width: 760px) {
+	.dashboard { width: min(100% - 36px, 560px); padding-top: 32px; }
+	.page-header { align-items: flex-start; flex-direction: column; gap: 17px; margin-bottom: 22px; }
+	h1 { font-size: 34px; }
+	.load-status { margin-bottom: 0; }
+	.chart-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+	.chart-panel { padding: 17px 15px 14px; }
+	.page-footer { flex-wrap: wrap; font-size: 8px; }
+}
